@@ -2,8 +2,7 @@ import {Component, Inject, Injector} from '@angular/core';
 import {Router} from '@angular/router';
 import {changeDetection} from '@demo/emulate/change-detection';
 import {encapsulation} from '@demo/emulate/encapsulation';
-import {TuiContextWithImplicit} from '@taiga-ui/cdk';
-import {TuiAlertService, TuiNotification} from '@taiga-ui/core';
+import {TuiAlertService} from '@taiga-ui/core';
 import {PolymorpheusComponent} from '@tinkoff/ng-polymorpheus';
 import {Observable} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
@@ -33,11 +32,11 @@ export class TuiAlertsExampleComponent5 {
                     this.injector,
                 ),
                 {
-                    label: ({$implicit}: TuiContextWithImplicit<TuiNotification>) =>
-                        $implicit === TuiNotification.Error
+                    label: ({status}) =>
+                        status === 'error'
                             ? 'Error label from function'
                             : 'Info label from function',
-                    status: TuiNotification.Info,
+                    status: 'error',
                     autoClose: false,
                 },
             )
@@ -51,7 +50,7 @@ export class TuiAlertsExampleComponent5 {
                 ),
                 {
                     label: new PolymorpheusComponent(CustomLabelComponent, this.injector),
-                    status: TuiNotification.Warning,
+                    status: 'warning',
                     autoClose: false,
                 },
             )

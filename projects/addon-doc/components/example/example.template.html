@@ -8,12 +8,12 @@
     ></span>
     <button
         *ngIf="id"
+        appearance="icon"
+        size="xs"
         tuiIconButton
         type="button"
-        size="xs"
-        icon="tuiIconLink"
-        appearance="icon"
         class="t-link-icon"
+        [icon]="options.linkIcon"
         [title]="copy$ | async"
         (click)="copyExampleLink()"
     ></button>
@@ -31,7 +31,7 @@
     *ngIf="processor$ | async as files"
     class="t-example"
 >
-    <ng-container *ngIf="files | tuiDocExampleGetTabs : defaultTab as tabs">
+    <ng-container *ngIf="files | tuiDocExampleGetTabs: defaultTab as tabs">
         <div class="t-tabs-wrapper">
             <tui-tabs-with-more
                 class="t-tabs"
@@ -50,7 +50,7 @@
             </tui-tabs-with-more>
 
             <tui-loader
-                *ngIf="files | tuiMapper : visible"
+                *ngIf="files | tuiMapper: visible"
                 size="xs"
                 [overlay]="true"
                 [showLoader]="!!(loading$ | async)"
@@ -64,9 +64,9 @@
 
                 <ng-template #defaultEditContent>
                     <button
-                        tuiButton
                         appearance="flat"
                         size="s"
+                        tuiButton
                         type="button"
                     >
                         Edit on {{ codeEditor!.name }}
@@ -78,7 +78,7 @@
         <div
             *ngFor="let tab of tabs; let index = index"
             class="t-content"
-            [class.t-content_animated]="!isCypress"
+            [class.t-content_animated]="!isE2E"
             [class.t-content_visible]="activeItemIndex === index"
         >
             <ng-container

@@ -1,6 +1,7 @@
 export * from './animation-options';
 export * from './animations-duration';
 export * from './assert-enabled';
+export * from './common-icon';
 export * from './data-list-accessor';
 export * from './data-list-host';
 export * from './day-type-handler';
@@ -22,6 +23,7 @@ export * from './ordered-short-week-days';
 export * from './sanitizer';
 export * from './scroll-ref';
 export * from './selection-stream';
+export * from './spin-icons';
 export * from './svg-content-processor';
 export * from './svg-src-processor';
 export * from './textfield-appearance';

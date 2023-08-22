@@ -3,13 +3,13 @@
 </div>
 <button
     *ngIf="closeable"
-    type="button"
-    tuiIconButton
-    icon="tuiIconCloseLarge"
-    size="xs"
     appearance=""
     shape="rounded"
+    size="xs"
+    tuiIconButton
+    type="button"
     class="t-close"
+    [icon]="icons.close"
     [title]="closeWord$ | async"
     (click)="close.emit()"
 ></button>

@@ -3,8 +3,8 @@
     <p class="tui-space_top-2">You can easily install Taiga UI by running the following command:</p>
 
     <tui-doc-code
-        filename="Angular CLI"
         code="ng add taiga-ui"
+        filename="Angular CLI"
     ></tui-doc-code>
     <tui-doc-code
         filename="Nx CLI"
@@ -17,45 +17,45 @@
         <ol class="steps">
             <li>
                 <a
-                    tuiLink
-                    routerLink="."
                     fragment="install"
+                    routerLink="."
+                    tuiLink
                 >
                     Install libraries
                 </a>
             </li>
             <li>
                 <a
-                    tuiLink
-                    routerLink="."
                     fragment="styles"
+                    routerLink="."
+                    tuiLink
                 >
                     Include styles
                 </a>
             </li>
             <li>
                 <a
-                    tuiLink
-                    routerLink="."
                     fragment="root"
+                    routerLink="."
+                    tuiLink
                 >
                     Root component
                 </a>
             </li>
             <li>
                 <a
-                    tuiLink
-                    routerLink="."
                     fragment="options"
+                    routerLink="."
+                    tuiLink
                 >
                     Optional components
                 </a>
             </li>
             <li>
                 <a
-                    tuiLink
-                    routerLink="."
                     fragment="icons"
+                    routerLink="."
+                    tuiLink
                 >
                     Icons
                 </a>
@@ -108,8 +108,8 @@
                                 <p>
                                     You need to manually
                                     <a
-                                        tuiLink
                                         href="https://necolas.github.io/normalize.css/"
+                                        tuiLink
                                     >
                                         download css file
                                     </a>
@@ -186,16 +186,49 @@
                     filename="app.component.html"
                     [code]="appTemplate"
                 ></tui-doc-code>
+
+                <p>
+                    If you're using
+                    <code>standalone</code>
+                    components:
+                </p>
+
+                <tui-doc-code
+                    filename="app.component.ts"
+                    [code]="standalone"
+                ></tui-doc-code>
+
+                <tui-doc-code
+                    filename="main.ts"
+                    [code]="standaloneMain"
+                ></tui-doc-code>
             </li>
 
             <li id="options">
-                Taiga UI also has optional modules for dialogs and notifications. If you need these features, add
-                modules into your app.module.ts
+                <p>
+                    Taiga UI also has optional modules for dialogs and notifications. If you need these features, add
+                    modules into your app.module.ts
+                </p>
 
                 <tui-doc-code
                     filename="app.module.ts"
-                    class="tui-space_bottom-4"
                     [code]="appModuleOptional"
+                ></tui-doc-code>
+
+                <p>
+                    or for
+                    <code>standalone</code>
+                    components:
+                </p>
+
+                <tui-doc-code
+                    filename="app.component.ts"
+                    [code]="standalone"
+                ></tui-doc-code>
+
+                <tui-doc-code
+                    filename="main.ts"
+                    [code]="standaloneMainOptional"
                 ></tui-doc-code>
             </li>
 
@@ -217,8 +250,8 @@
     <p class="tui-space_top-8">Updating Taiga packages to the latest version:</p>
 
     <tui-doc-code
-        filename="Angular CLI"
         code="ng update @taiga-ui/cdk"
+        filename="Angular CLI"
     ></tui-doc-code>
 
     <tui-doc-code

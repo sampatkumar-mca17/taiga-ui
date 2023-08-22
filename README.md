@@ -2,19 +2,18 @@
 
 [![npm version](https://img.shields.io/npm/v/@taiga-ui/cdk.svg)](https://npmjs.com/package/@taiga-ui/cdk)
 [![codecov](https://codecov.io/gh/tinkoff/taiga-ui/branch/main/graphs/badge.svg)](https://app.codecov.io/gh/Tinkoff/taiga-ui/tree/main/projects)
-[![All packages CI](https://github.com/tinkoff/taiga-ui/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/tinkoff/taiga-ui/actions/workflows/build.yml)
-[![Deploy](https://github.com/tinkoff/taiga-ui/actions/workflows/deploy-gh-pages.yml/badge.svg?branch=main)](https://github.com/tinkoff/taiga-ui/actions/workflows/deploy-gh-pages.yml)
+[![All packages CI](https://github.com/taiga-family/taiga-ui/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/taiga-family/taiga-ui/actions/workflows/build.yml)
+[![Deploy](https://github.com/taiga-family/taiga-ui/actions/workflows/deploy-gh-pages.yml/badge.svg?branch=main)](https://github.com/taiga-family/taiga-ui/actions/workflows/deploy-gh-pages.yml)
 [![Downloads per month](https://img.shields.io/npm/dm/@taiga-ui/cdk?color=dark-green)](https://www.npmjs.com/package/@taiga-ui/cdk)
 [![Discord](https://img.shields.io/discord/748677963142135818?color=7289DA&label=%23taiga-ui&logo=discord&logoColor=white)](https://discord.gg/Us8d8JVaTg)
-[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/tinkoff/angular-open-source-starter)
-[![Codeflow](https://img.shields.io/badge/codeflow-pr.new-blue)](https://pr.new/github.com/tinkoff/taiga-ui)
+[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/taiga-family/angular-open-source-starter)
 
 [Website](https://taiga-ui.dev) • [Documentation](https://taiga-ui.dev/getting-started) • [Core team](#core-team) •
 [Figma](https://www.figma.com/community/file/1220308188005380608)
 
 **Taiga UI** is fully-treeshakable Angular UI Kit consisting of multiple base libraries and several add-ons.
-
-It is based on [ng-polymorpheus](https://github.com/tinkoff/ng-polymorpheus) dynamic content approach and uses
+test
+It is based on [ng-polymorpheus](https://github.com/taiga-family/ng-polymorpheus) dynamic content approach and uses
 [Web APIs for Angular](https://github.com/ng-web-apis) for required browser APIs.
 
 ## Why Taiga UI
@@ -28,8 +27,8 @@ to let you focus on your project features
 🦋 **Customizable**. We use CSS custom properties for all our styling and provide easy methods to customize all UI
 components
 
-🛠 **Well engineered**. We are not afraid to use DI to the max. All our components use `OnPush`, and the whole project is
-developed with `strict` TypeScript mode
+🛠 **Well engineered**. We are not afraid to use DI to the max. All our components use `OnPush`, and the whole project
+is developed with `strict` TypeScript mode
 
 📦 **It's big!** We have 130+ components, 100+ directives, dozens of tokens, utils and tools. And it isn't over yet 🚀
 
@@ -58,14 +57,14 @@ design your app with Taiga UI components.
 ## Contributing
 
 See our [CONTRIBUTING.md](/CONTRIBUTING.md) guide. Try to
-[make pull request](https://pr.new/github.com/tinkoff/taiga-ui) online from Web IDE.
+[make pull request](https://pr.new/github.com/taiga-family/taiga-ui) online from Web IDE.
 
 ## Status
 
-| Version | Status                                                                                       | Latest tag (npm)                                                                            |
-| ------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| v3.x    | ![v3](https://github.com/tinkoff/taiga-ui/actions/workflows/build.yml/badge.svg?branch=main) | ![npm version](https://img.shields.io/npm/v/@taiga-ui/cdk?label=%40taiga-ui%2Fcdk%20~%20v3) |
-| v2.x    | ![v2](https://github.com/tinkoff/taiga-ui/actions/workflows/build.yml/badge.svg?branch=v2.x) | ![v2](https://img.shields.io/npm/v/@taiga-ui/cdk/v2-lts?label=%40taiga-ui%2Fcdk%20~%20v2)   |
+| Version | Status                                                                                            | Latest tag (npm)                                                                            |
+| ------- | ------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| v3.x    | ![v3](https://github.com/taiga-family/taiga-ui/actions/workflows/build.yml/badge.svg?branch=main) | ![npm version](https://img.shields.io/npm/v/@taiga-ui/cdk?label=%40taiga-ui%2Fcdk%20~%20v3) |
+| v2.x    | ![v2](https://github.com/taiga-family/taiga-ui/actions/workflows/build.yml/badge.svg?branch=v2.x) | ![v2](https://img.shields.io/npm/v/@taiga-ui/cdk/v2-lts?label=%40taiga-ui%2Fcdk%20~%20v2)   |
 
 ## Core team
 
@@ -103,7 +102,7 @@ See our [CONTRIBUTING.md](/CONTRIBUTING.md) guide. Try to
             </div>
         </td>
         <td align="center">
-            <a href="http://marsibarsi.me"
+            <a href="https://twitter.com/marsibarsi"
                 ><img
                     src="https://github.com/marsibarsi.png?size=200"
                     width="100"

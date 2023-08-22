@@ -7,15 +7,15 @@
         *ngFor="let item of items"
         formControlName="control"
         class="control"
-        [item]="item"
         [hideRadio]="true"
+        [item]="item"
     >
         {{ item }}
         <button
-            tuiIconButton
             appearance="icon"
+            icon="tuiIconClose"
             size="xs"
-            icon="tuiIconCloseLarge"
+            tuiIconButton
             type="reset"
             class="button"
         ></button>

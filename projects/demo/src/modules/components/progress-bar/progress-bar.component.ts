@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {changeDetection} from '@demo/emulate/change-detection';
 import {TuiDocExample} from '@taiga-ui/addon-doc';
-import {TuiSizeS} from '@taiga-ui/core';
+import {TuiSizeXS, TuiSizeXXL} from '@taiga-ui/core';
 
 @Component({
     selector: 'example-tui-progress-bar',
@@ -13,8 +13,16 @@ export class ExampleProgressBarComponent {
     value = 6;
     max = 10;
 
-    readonly sizeVariants: readonly TuiSizeS[] = ['m', 's'];
-    size: TuiSizeS = this.sizeVariants[0];
+    readonly sizeVariants: ReadonlyArray<TuiSizeXS | TuiSizeXXL> = [
+        'xs',
+        's',
+        'm',
+        'l',
+        'xl',
+        'xxl',
+    ];
+
+    size: TuiSizeXS | TuiSizeXXL = this.sizeVariants[2];
 
     readonly colorVariants: readonly string[] = [
         'var(--tui-primary)',
@@ -29,7 +37,6 @@ export class ExampleProgressBarComponent {
     readonly basicExample: TuiDocExample = {
         HTML: import('./examples/1/index.html?raw'),
         TypeScript: import('./examples/1/index.ts?raw'),
-        LESS: import('./examples/1/index.less?raw'),
     };
 
     readonly multiColorExample: TuiDocExample = {
@@ -40,8 +47,8 @@ export class ExampleProgressBarComponent {
 
     readonly sizesExample: TuiDocExample = {
         HTML: import('./examples/3/index.html?raw'),
-        TypeScript: import('./examples/3/index.ts?raw'),
         LESS: import('./examples/3/index.less?raw'),
+        TypeScript: import('./examples/3/index.ts?raw'),
     };
 
     readonly labelExample: TuiDocExample = {
@@ -52,14 +59,13 @@ export class ExampleProgressBarComponent {
 
     readonly stackedExample: TuiDocExample = {
         HTML: import('./examples/5/index.html?raw'),
-        TypeScript: import('./examples/5/index.ts?raw'),
         LESS: import('./examples/5/index.less?raw'),
+        TypeScript: import('./examples/5/index.ts?raw'),
     };
 
     readonly indeterminateExample: TuiDocExample = {
         HTML: import('./examples/6/index.html?raw'),
         TypeScript: import('./examples/6/index.ts?raw'),
-        LESS: import('./examples/6/index.less?raw'),
     };
 
     readonly exampleModule = import('./examples/import/import-module.md?raw');

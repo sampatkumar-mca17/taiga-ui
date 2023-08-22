@@ -3,46 +3,50 @@
     <tui-money [value]="money"></tui-money>
 </p>
 <button
+    size="m"
     tuiButton
     type="button"
-    size="m"
     class="tui-space_right-3"
     (click)="showWithdrawAlert()"
 >
     Withdraw
 </button>
 <button
+    size="m"
     tuiButton
     type="button"
-    size="m"
     class="tui-space_right-3"
     (click)="showDepositAlert()"
 >
     Add
 </button>
-<button
-    tuiButton
-    type="button"
-    size="m"
-    class="tui-space_right-3"
-    (click)="withdraw()"
->
-    Withdraw&nbsp;
-    <tui-money [value]="100"></tui-money>
-</button>
+<p>
+    <button
+        size="m"
+        tuiButton
+        type="button"
+        (click)="withdraw()"
+    >
+        Withdraw&nbsp;
+        <tui-money [value]="100"></tui-money>
+    </button>
+</p>
 
-<ng-template #withdrawTemplate>
+<ng-template
+    #withdrawTemplate="polymorpheus"
+    polymorpheus
+>
     <p>Notifications can be shown with template</p>
     <p>
         Your balance:
         <tui-money [value]="money"></tui-money>
     </p>
     <button
-        tuiButton
-        type="button"
-        tuiMode="onLight"
         appearance="outline"
         size="m"
+        tuiButton
+        tuiMode="onLight"
+        type="button"
         (click)="withdraw()"
     >
         Withdraw&nbsp;
@@ -50,7 +54,10 @@
     </button>
 </ng-template>
 
-<ng-template #depositTemplate>
+<ng-template
+    #depositTemplate="polymorpheus"
+    polymorpheus
+>
     <p>
         If there are many templates, you can use
         <code>ViewChildren</code>
@@ -63,11 +70,11 @@
         <tui-money [value]="money"></tui-money>
     </p>
     <button
-        tuiButton
-        type="button"
-        tuiMode="onLight"
         appearance="outline"
         size="m"
+        tuiButton
+        tuiMode="onLight"
+        type="button"
         (click)="deposit()"
     >
         Add&nbsp;

@@ -16,6 +16,14 @@
             you do not need to provide a service. It is just available to inject
         </p>
 
+        <p>
+            Position on screen can be configured by providing margins with
+            <code>TUI_ALERT_POSITION</code>
+            token. Default value is
+            <code>2rem 3rem 0 auto</code>
+            .
+        </p>
+
         <tui-doc-example
             id="text"
             heading="Text"
@@ -67,9 +75,9 @@
 
     <ng-template pageTab>
         <button
+            size="m"
             tuiButton
             type="button"
-            size="m"
             (click)="showNotification()"
         >
             Show
@@ -193,8 +201,8 @@
             <li>
                 To pass notification with custom content, you can use
                 <a
-                    routerLink="/services/alert-service"
                     fragment="example-template"
+                    routerLink="/services/alert-service"
                     tuiLink
                 >
                     <code>your template</code>
@@ -259,7 +267,7 @@
                 <p>
                     Optionally use the
                     <code>TUI_NOTIFICATION_OPTIONS</code>
-                    injection token to override the default options (works only in app.module.ts).
+                    injection token to override the default options with a helper (works only in app.module.ts).
                 </p>
 
                 <tui-doc-code

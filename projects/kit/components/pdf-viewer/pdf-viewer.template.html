@@ -12,13 +12,13 @@
         </ng-container>
     </div>
     <button
-        tuiIconButton
-        shape="rounded"
         appearance=""
+        shape="rounded"
         size="s"
+        tuiIconButton
         type="button"
-        icon="tuiIconCloseLarge"
         class="t-close"
+        [icon]="icons.close"
         [title]="closeWord$ | async"
         (click)="context.$implicit.complete()"
     ></button>

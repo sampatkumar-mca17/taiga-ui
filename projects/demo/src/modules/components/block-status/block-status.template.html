@@ -10,6 +10,7 @@
             id="base"
             heading="Basic"
             [content]="example1"
+            [fullsize]="true"
         >
             <tui-block-status-example-1></tui-block-status-example-1>
         </tui-doc-example>
@@ -18,6 +19,7 @@
             id="actions"
             heading="With actions"
             [content]="example2"
+            [fullsize]="true"
         >
             <tui-block-status-example-2></tui-block-status-example-2>
         </tui-doc-example>
@@ -26,6 +28,7 @@
             id="card"
             heading="Cards"
             [content]="example3"
+            [fullsize]="true"
         >
             <tui-block-status-example-3></tui-block-status-example-3>
         </tui-doc-example>
@@ -34,6 +37,7 @@
             id="customization"
             heading="customization"
             [content]="example4"
+            [fullsize]="true"
         >
             <tui-block-status-example-4></tui-block-status-example-4>
         </tui-doc-example>
@@ -43,15 +47,15 @@
         <tui-doc-demo>
             <tui-block-status [card]="card">
                 <img
-                    tuiSlot="top"
                     alt="hidden content"
                     src="./assets/images/camping.svg"
+                    tuiSlot="top"
                 />
                 <h4>Title</h4>
                 Description
                 <button
-                    tuiButton
                     appearance="secondary"
+                    tuiButton
                 >
                     Action
                 </button>
@@ -59,8 +63,8 @@
         </tui-doc-demo>
         <tui-doc-documentation>
             <ng-template
-                documentationPropertyName="card"
                 documentationPropertyMode="input"
+                documentationPropertyName="card"
                 documentationPropertyType="boolean"
                 [(documentationPropertyValue)]="card"
             >

@@ -2,6 +2,7 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    HostBinding,
     Inject,
     Input,
     Optional,
@@ -21,7 +22,14 @@ import {
     tuiPure,
     TuiYear,
 } from '@taiga-ui/cdk';
-import {TuiPrimitiveTextfieldComponent, TuiWithOptionalMinMax} from '@taiga-ui/core';
+import {
+    TUI_TEXTFIELD_SIZE,
+    TuiPrimitiveTextfieldComponent,
+    TuiSizeL,
+    TuiSizeS,
+    TuiTextfieldSizeDirective,
+    TuiWithOptionalMinMax,
+} from '@taiga-ui/core';
 import {TUI_INPUT_DATE_OPTIONS, TuiInputDateOptions} from '@taiga-ui/kit/tokens';
 
 const UP_TO_4_DIGITS_REG = /^\d{0,4}$/;
@@ -44,15 +52,16 @@ export class TuiInputYearComponent
     private readonly textfield?: TuiPrimitiveTextfieldComponent;
 
     @Input()
-    min = this.options.min.year;
+    min: number | null = this.options.min.year;
 
     @Input()
-    max = this.options.max.year;
+    max: number | null = this.options.max.year;
 
     @Input()
     disabledItemHandler: TuiBooleanHandler<number> = ALWAYS_FALSE_HANDLER;
 
     open = false;
+    nativeValue = '';
 
     readonly initialItem = new Date().getFullYear();
 
@@ -64,16 +73,31 @@ export class TuiInputYearComponent
         @Inject(ChangeDetectorRef) cdr: ChangeDetectorRef,
         @Inject(TUI_INPUT_DATE_OPTIONS)
         private readonly options: TuiInputDateOptions,
+        @Inject(TUI_TEXTFIELD_SIZE)
+        private readonly textfieldSize: TuiTextfieldSizeDirective,
     ) {
         super(control, cdr);
     }
 
+    @HostBinding('attr.data-size')
+    get size(): TuiSizeL | TuiSizeS {
+        return this.textfieldSize.size;
+    }
+
+    get computedMin(): number {
+        return this.min ?? this.options.min.year;
+    }
+
+    get computedMax(): number {
+        return this.max ?? this.options.max.year;
+    }
+
     get nativeFocusableElement(): HTMLInputElement | null {
-        return this.textfield ? this.textfield.nativeFocusableElement : null;
+        return this.textfield?.nativeFocusableElement || null;
     }
 
     get focused(): boolean {
-        return !!this.textfield && this.textfield.focused;
+        return !!this.textfield?.focused;
     }
 
     get calendarIcon(): TuiInputDateOptions['icon'] {
@@ -81,9 +105,10 @@ export class TuiInputYearComponent
     }
 
     @tuiPure
-    getMaskOptions(max: number): MaskitoOptions {
+    getMaskOptions(min: number, max: number): MaskitoOptions {
         return {
             ...maskitoNumberOptionsGenerator({
+                min,
                 max,
                 thousandSeparator: '',
             }),
@@ -97,15 +122,12 @@ export class TuiInputYearComponent
 
     onYearClick({year}: TuiYear): void {
         this.value = year;
+        this.updateNativeValue(year);
         this.onOpenChange(false);
     }
 
     onFocused(focused: boolean): void {
         this.updateFocused(focused);
-
-        if (!focused && this.value && this.value < this.min) {
-            this.value = this.min;
-        }
     }
 
     onOpenChange(open: boolean): void {
@@ -114,5 +136,14 @@ export class TuiInputYearComponent
 
     toggle(): void {
         this.open = !this.open;
+    }
+
+    override writeValue(value: number | null): void {
+        super.writeValue(value);
+        this.updateNativeValue(value);
+    }
+
+    private updateNativeValue(value: number | null): void {
+        this.nativeValue = value?.toString() || '';
     }
 }

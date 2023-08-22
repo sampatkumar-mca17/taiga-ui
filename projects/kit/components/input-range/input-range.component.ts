@@ -283,8 +283,6 @@ export class TuiInputRangeComponent
         const [leftInputRef, rightInputRef] = this.inputNumberRefs;
         const textInputRef = right ? rightInputRef : leftInputRef;
 
-        if (textInputRef) {
-            textInputRef.nativeValue = textInputRef.getFormattedValue(value);
-        }
+        textInputRef?.writeValue(value);
     }
 }

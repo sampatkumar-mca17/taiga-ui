@@ -1,6 +1,6 @@
 {
     "name": "@taiga-ui/cdk",
-    "version": "3.36.2",
+    "version": "3.41.1",
     "description": "Base library for creating Angular components and applications using Taiga UI principles regarding of actual visual appearance",
     "keywords": [
         "angular",
@@ -11,16 +11,16 @@
         "service",
         "directive"
     ],
-    "homepage": "https://github.com/tinkoff/taiga-ui",
-    "repository": "https://github.com/tinkoff/taiga-ui",
+    "homepage": "https://github.com/taiga-family/taiga-ui",
+    "repository": "https://github.com/taiga-family/taiga-ui",
     "license": "Apache-2.0",
     "dependencies": {
-        "@ng-web-apis/common": "3.0.1",
-        "@ng-web-apis/mutation-observer": "3.0.1",
-        "@ng-web-apis/resize-observer": "3.0.1",
+        "@ng-web-apis/common": "3.0.2",
+        "@ng-web-apis/mutation-observer": "3.0.2",
+        "@ng-web-apis/resize-observer": "3.0.2",
         "@tinkoff/ng-event-plugins": "3.1.0",
         "@tinkoff/ng-polymorpheus": "4.1.0",
-        "tslib": "2.6.0"
+        "tslib": "2.6.2"
     },
     "peerDependencies": {
         "@angular/animations": ">=12.0.0",
@@ -50,11 +50,13 @@
             "@taiga-ui/addon-tablebars",
             "@taiga-ui/addon-table",
             "@taiga-ui/addon-mobile",
+            "@taiga-ui/layout",
             "@taiga-ui/proprietary-banking",
             "@taiga-ui/proprietary-core",
             "@taiga-ui/proprietary-icons",
             "@taiga-ui/proprietary-navigation",
-            "@taiga-ui/layout"
+            "@taiga-ui/proprietary-tds-icons",
+            "@taiga-ui/proprietary-tds-palette"
         ]
     },
     "schematics": "./schematics/collection.json"

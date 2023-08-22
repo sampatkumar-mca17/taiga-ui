@@ -1,5 +1,5 @@
 import {Provider} from '@angular/core';
-import {TuiContextWithImplicit, tuiCreateOptions, tuiProvideOptions} from '@taiga-ui/cdk';
+import {TuiContextWithImplicit, tuiCreateToken, tuiProvideOptions} from '@taiga-ui/cdk';
 import {TuiAppearance} from '@taiga-ui/core/enums';
 import {TuiSizeL} from '@taiga-ui/core/types';
 import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
@@ -26,19 +26,17 @@ export const TUI_CHECKBOX_DEFAULT_OPTIONS: TuiCheckboxOptions = {
         indeterminate: TuiAppearance.Primary,
     },
     icons: {
-        checked({$implicit}: TuiContextWithImplicit<TuiSizeL>): string {
-            return $implicit === `m` ? `tuiIconCheck` : `tuiIconCheckLarge`;
-        },
-        indeterminate({$implicit}: TuiContextWithImplicit<TuiSizeL>): string {
-            return $implicit === `m` ? `tuiIconMinus` : `tuiIconMinusLarge`;
-        },
+        checked: ({$implicit}) =>
+            $implicit === `m` ? `tuiIconCheck` : `tuiIconCheckLarge`,
+        indeterminate: ({$implicit}) =>
+            $implicit === `m` ? `tuiIconMinus` : `tuiIconMinusLarge`,
     },
 };
 
 /**
  * Default parameters for checkbox component
  */
-export const TUI_CHECKBOX_OPTIONS = tuiCreateOptions(TUI_CHECKBOX_DEFAULT_OPTIONS);
+export const TUI_CHECKBOX_OPTIONS = tuiCreateToken(TUI_CHECKBOX_DEFAULT_OPTIONS);
 
 export function tuiCheckboxOptionsProvider(
     options: Partial<TuiCheckboxOptions>,

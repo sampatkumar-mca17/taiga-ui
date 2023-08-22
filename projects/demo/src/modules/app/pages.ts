@@ -1,48 +1,46 @@
-import {TuiDocPages} from '@taiga-ui/addon-doc';
-
-export const pages: TuiDocPages = [
+export const pages = [
     // Documentation
     {
         section: `Documentation`,
         title: `Getting started`,
         keywords: `intro, how to, guide, main, главная, начало, инструкция`,
-        route: `getting-started`,
+        route: `/getting-started`,
     },
     {
         section: `Documentation`,
         title: `Browser support`,
         keywords: `chrome, safari, ie, edge, firefox`,
-        route: `browser-support`,
+        route: `/browser-support`,
     },
     {
         section: `Documentation`,
         title: `Changelog`,
         keywords: `release, change, changelog, archive, history`,
-        route: `changelog`,
+        route: `/changelog`,
     },
     {
         section: `Documentation`,
         title: `Server Side Rendering`,
         keywords: `ssr, server, prerender, back, node, universal`,
-        route: `ssr`,
+        route: `/ssr`,
     },
     {
         section: `Documentation`,
         title: `Documentation engine`,
         keywords: `doc, book, samples, demo, документация, демо, портал, story, боковая, панель, навигация, примеры`,
-        route: `tui-doc`,
+        route: `/tui-doc`,
     },
     {
         section: `Documentation`,
         title: `Taiga UI family`,
         keywords: `related, libraries, other, friendly, npm, packages`,
-        route: `related`,
+        route: `/related`,
     },
     {
         section: `Documentation`,
         title: `StackBlitz`,
         keywords: `reproduce, issue, bug, sandbox, playground, test`,
-        route: `stackblitz`,
+        route: `/stackblitz`,
     },
     {
         section: `Documentation`,
@@ -508,9 +506,9 @@ export const pages: TuiDocPages = [
             },
             {
                 section: `Components`,
-                title: `TextArea`,
-                keywords: `поле, инпут, форма, ввод, text-area, area`,
-                route: `/components/text-area`,
+                title: `Textarea`,
+                keywords: `поле, инпут, форма, ввод, textarea, area`,
+                route: `/components/textarea`,
             },
             {
                 section: `Components`,
@@ -708,6 +706,12 @@ export const pages: TuiDocPages = [
     },
     {
         section: `Components`,
+        title: `SheetDialog`,
+        keywords: `mobile, dialog, popup, map, details, шторка`,
+        route: `/components/sheet-dialog`,
+    },
+    {
+        section: `Components`,
         title: `Sliders`,
         subPages: [
             {
@@ -809,6 +813,13 @@ export const pages: TuiDocPages = [
         title: `Tree`,
         keywords: `tree, view, multi, recursive, folders, рекурсия, дерево, папки`,
         route: `/components/tree`,
+    },
+    // Experimental
+    {
+        section: `Experimental`,
+        title: `Avatar`,
+        keywords: `аватар, image, pic, icon, картинка, изображение, avatar, stack`,
+        route: `/experimental/avatar`,
     },
     // Charts
     {
@@ -944,19 +955,19 @@ export const pages: TuiDocPages = [
         section: `Customization`,
         title: `i18n`,
         keywords: `i18n, internationalization, local, translate, language`,
-        route: `i18n`,
+        route: `/i18n`,
     },
     {
         section: `Customization`,
         title: `Variables`,
         keywords: `colors, css, vars, custom, properties, style`,
-        route: `variables`,
+        route: `/variables`,
     },
     {
         section: `Customization`,
         title: `Wrapper`,
         keywords: `colors, css, theme, custom, style`,
-        route: `wrapper`,
+        route: `/wrapper`,
     },
     {
         section: `Customization`,
@@ -986,7 +997,7 @@ export const pages: TuiDocPages = [
         section: `Customization`,
         title: `Portals`,
         keywords: `portal, custom, theme, style`,
-        route: `portals`,
+        route: `/portals`,
     },
     // Tools
     {
@@ -994,30 +1005,6 @@ export const pages: TuiDocPages = [
         title: `Animations`,
         keywords: `animation, animations, анимация, анимации`,
         route: `/animations`,
-    },
-    {
-        section: `Tools`,
-        title: `Decorators`,
-        subPages: [
-            {
-                section: `Tools`,
-                title: `DefaultProp`,
-                keywords: `декоратор, decorator, guard, undefined, type, check, contact, assert, контракт`,
-                route: `/decorators/default-prop`,
-            },
-            {
-                section: `Tools`,
-                title: `Pure`,
-                keywords: `декоратор, decorator, lazy, calculation, optimization, pipe, memoization`,
-                route: `/decorators/pure`,
-            },
-            {
-                section: `Tools`,
-                title: `RequiredSetter`,
-                keywords: `декоратор, decorator, guard, undefined, type, check, contact, assert, контракт`,
-                route: `/decorators/required-setter`,
-            },
-        ],
     },
     {
         section: `Tools`,
@@ -1336,6 +1323,12 @@ export const pages: TuiDocPages = [
                 keywords: `токены tokens`,
                 route: `/utils/tokens`,
             },
+            {
+                section: `Tools`,
+                title: `Pure`,
+                keywords: `Инструменты, утилиты, lazy, calculation, optimization, pipe, memoization`,
+                route: `/utils/pure`,
+            },
         ],
     },
-];
+] as const;

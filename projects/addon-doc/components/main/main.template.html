@@ -11,14 +11,14 @@
     <header tuiDocHeader>
         <ng-content select="tuiDocHeader"></ng-content>
         <button
+            appearance="secondary"
+            shape="rounded"
+            size="s"
             tuiIconButton
             tuiMode="onLight"
-            appearance="secondary"
-            size="s"
-            shape="rounded"
             type="button"
             class="tui-doc-night-mode-switch"
-            [icon]="night.value ? 'tuiIconSun' : 'tuiIconMoon'"
+            [icon]="icon"
             (click)="night.toggle()"
         ></button>
     </header>

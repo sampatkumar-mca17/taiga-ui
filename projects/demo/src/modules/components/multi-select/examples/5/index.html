@@ -8,8 +8,8 @@
 >
     <tui-data-list *tuiDataList>
         <tui-opt-group
-            tuiMultiSelectGroup
             label="Jedi, may the force be with them blah blah blah"
+            tuiMultiSelectGroup
         >
             <button
                 *ngFor="let item of jedi"
@@ -40,8 +40,8 @@
 >
     <tui-data-list *tuiDataList>
         <tui-opt-group
-            tuiMultiSelectGroup
             label="Jedi, may the force be with them blah blah blah"
+            tuiMultiSelectGroup
         >
             <button
                 *ngFor="let item of jedi"
@@ -52,6 +52,41 @@
             </button>
         </tui-opt-group>
         <tui-opt-group tuiMultiSelectGroup>
+            <button
+                *ngFor="let item of sith"
+                tuiOption
+                [value]="item"
+            >
+                {{ item }}
+            </button>
+        </tui-opt-group>
+    </tui-data-list>
+</tui-multi-select>
+
+<tui-multi-select
+    class="b-form tui-space_top-5"
+    [editable]="false"
+    [expandable]="false"
+    [tuiTextfieldLabelOutside]="true"
+    [(ngModel)]="value"
+>
+    <tui-data-list *tuiDataList>
+        <tui-opt-group
+            label="Jedi, may the force be with them blah blah blah"
+            tuiMultiSelectGroup
+        >
+            <button
+                *ngFor="let item of jedi"
+                tuiOption
+                [value]="item"
+            >
+                {{ item }}
+            </button>
+        </tui-opt-group>
+        <tui-opt-group
+            label="Jedi, may the force be with them blah blah blah (second time)"
+            tuiMultiSelectGroup
+        >
             <button
                 *ngFor="let item of sith"
                 tuiOption

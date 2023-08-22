@@ -10,17 +10,13 @@ import {
 import {tuiIsObserved} from '@taiga-ui/cdk';
 import {
     TUI_CLOSE_WORD,
+    TUI_COMMON_ICONS,
     TUI_NOTIFICATION_OPTIONS,
+    TuiCommonIcons,
     TuiNotificationDefaultOptions,
 } from '@taiga-ui/core/tokens';
+import {TuiNotificationT} from '@taiga-ui/core/types';
 import {Observable} from 'rxjs';
-
-export const STATUS_ICON = {
-    info: 'tuiIconInfo',
-    success: 'tuiIconCheckCircle',
-    error: 'tuiIconXCircle',
-    warning: 'tuiIconAlertCircle',
-} as const;
 
 @Component({
     selector: 'tui-notification',
@@ -29,13 +25,22 @@ export const STATUS_ICON = {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TuiNotificationComponent {
+    /**
+     * @deprecated Use {@link TuiNotificationComponent.icon} input or TUI_NOTIFICATION_OPTIONS instead
+     */
     @Input()
-    @HostBinding('class._has-icon')
     hasIcon = this.options.hasIcon;
 
     @Input()
+    icon = this.options.icon;
+
+    @Input()
     @HostBinding('attr.data-status')
-    status: 'error' | 'info' | 'success' | 'warning' = this.options.status;
+    status: TuiNotificationT = this.options.status;
+
+    @Input()
+    @HostBinding('attr.data-size')
+    size = this.options.size;
 
     @Input()
     hideClose = false;
@@ -46,15 +51,10 @@ export class TuiNotificationComponent {
 
     constructor(
         @Inject(TUI_CLOSE_WORD) readonly closeWord$: Observable<string>,
-        @Inject(TUI_NOTIFICATION_OPTIONS)
-        readonly options: TuiNotificationDefaultOptions,
+        @Inject(TUI_COMMON_ICONS) readonly icons: TuiCommonIcons,
+        @Inject(TUI_NOTIFICATION_OPTIONS) readonly options: TuiNotificationDefaultOptions,
     ) {}
 
-    get icon(): string {
-        return STATUS_ICON[this.status];
-    }
-
-    @HostBinding('class._has-close-button')
     get hasClose(): boolean {
         return !this.hideClose && tuiIsObserved(this.close);
     }

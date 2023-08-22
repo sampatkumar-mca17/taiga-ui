@@ -5,19 +5,14 @@ on:
   pull_request:
     types: [synchronize, opened, reopened]
 
-env:
-  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-
 jobs:
   tracking:
     if: ${{ !contains(github.head_ref, 'release/') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.3
-      - name: Setup global variables
-        uses: ./.github/actions/variables
-      - name: Setup Node.js and Cache
-        uses: ./.github/actions/nodejs
+      - uses: taiga-family/ci/actions/variables@1.9.2
+      - uses: taiga-family/ci/actions/setup-node@1.9.2
 
       - run: npx nx build demo
 

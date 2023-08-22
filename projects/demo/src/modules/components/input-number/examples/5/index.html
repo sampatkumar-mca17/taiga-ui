@@ -1,8 +1,8 @@
 <tui-input-number
-    tuiTextfieldPrefix="¥ "
     decimal="never"
+    tuiTextfieldPostfix=",00"
+    tuiTextfieldPrefix="¥ "
     class="b-form"
-    [tuiTextfieldPostfix]="value ? ',00' : ' ,00'"
     [(ngModel)]="value"
 >
     Type a sum

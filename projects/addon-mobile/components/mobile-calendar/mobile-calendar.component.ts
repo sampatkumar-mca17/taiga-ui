@@ -15,7 +15,7 @@ import {
     ALWAYS_FALSE_HANDLER,
     MONTHS_IN_YEAR,
     TUI_FIRST_DAY,
-    TUI_IS_CYPRESS,
+    TUI_IS_E2E,
     TUI_IS_IOS,
     TUI_LAST_DAY,
     TuiBooleanHandler,
@@ -30,7 +30,9 @@ import {
 import {
     TUI_ANIMATIONS_DURATION,
     TUI_CLOSE_WORD,
+    TUI_COMMON_ICONS,
     TUI_SHORT_WEEK_DAYS,
+    TuiCommonIcons,
 } from '@taiga-ui/core';
 import {
     TUI_CANCEL_WORD,
@@ -113,12 +115,13 @@ export class TuiMobileCalendarComponent implements AfterViewInit {
 
     constructor(
         @Inject(TUI_IS_IOS) readonly isIOS: boolean,
-        @Inject(TUI_IS_CYPRESS) readonly isCypress: boolean,
+        @Inject(TUI_IS_E2E) readonly isE2E: boolean,
         @Inject(DOCUMENT) private readonly doc: Document,
         @Self()
         @Inject(TuiDestroyService)
         private readonly destroy$: TuiDestroyService,
         @Inject(TUI_VALUE_STREAM) valueChanges: Observable<TuiDayRange | null>,
+        @Inject(TUI_COMMON_ICONS) readonly icons: TuiCommonIcons,
         @Inject(TUI_CLOSE_WORD) readonly closeWord$: Observable<string>,
         @Inject(TUI_CANCEL_WORD) readonly cancelWord$: Observable<string>,
         @Inject(TUI_DONE_WORD) readonly doneWord$: Observable<string>,
@@ -393,14 +396,14 @@ export class TuiMobileCalendarComponent implements AfterViewInit {
     private scrollToActiveYear(behavior: ScrollBehavior = 'auto'): void {
         this.yearsScrollRef?.scrollToIndex(
             Math.max(this.activeYear - STARTING_YEAR - 2, 0),
-            this.isCypress ? 'auto' : behavior,
+            this.isE2E ? 'auto' : behavior,
         );
     }
 
     private scrollToActiveMonth(behavior: ScrollBehavior = 'auto'): void {
         this.monthsScrollRef?.scrollToIndex(
             this.activeMonth,
-            this.isCypress ? 'auto' : behavior,
+            this.isE2E ? 'auto' : behavior,
         );
     }
 

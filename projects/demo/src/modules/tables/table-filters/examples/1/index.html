@@ -1,20 +1,16 @@
 <ng-container tuiTableFilters>
-    <form
-        class="form"
-        [formGroup]="form"
-    >
+    <form [formGroup]="form">
         <tui-input-number
-            tuiTableFilter="balance"
             formControlName="balance"
-            class="control"
+            tuiTableFilter="balance"
             [tuiGenericFilter]="filter"
         >
             Minimal balance
         </tui-input-number>
-        <label>
+        <label class="toggle">
             <tui-toggle
-                [ngModelOptions]="{standalone: true}"
                 [ngModel]="form.enabled"
+                [ngModelOptions]="{standalone: true}"
                 (ngModelChange)="onToggle($event)"
             ></tui-toggle>
             Enable filtering

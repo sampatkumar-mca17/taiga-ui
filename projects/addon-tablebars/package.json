@@ -1,6 +1,6 @@
 {
     "name": "@taiga-ui/addon-tablebars",
-    "version": "3.36.2",
+    "version": "3.41.1",
     "description": "Table bars is interactive UI control for group table actions and similar cases",
     "keywords": [
         "angular",
@@ -9,14 +9,14 @@
         "group",
         "action"
     ],
-    "homepage": "https://github.com/tinkoff/taiga-ui",
-    "repository": "https://github.com/tinkoff/taiga-ui",
+    "homepage": "https://github.com/taiga-family/taiga-ui",
+    "repository": "https://github.com/taiga-family/taiga-ui",
     "license": "Apache-2.0",
     "peerDependencies": {
         "@angular/common": ">=12.0.0",
         "@angular/core": ">=12.0.0",
-        "@taiga-ui/cdk": ">=3.36.2",
-        "@taiga-ui/core": ">=3.36.2",
+        "@taiga-ui/cdk": ">=3.41.1",
+        "@taiga-ui/core": ">=3.41.1",
         "@tinkoff/ng-polymorpheus": ">=4.0.0",
         "rxjs": ">=6.0.0",
         "tslib": ">=2.0.0"

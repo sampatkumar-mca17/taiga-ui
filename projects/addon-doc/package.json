@@ -1,6 +1,6 @@
 {
     "name": "@taiga-ui/addon-doc",
-    "version": "3.36.2",
+    "version": "3.41.1",
     "description": "Taiga UI based library for developing documentation portals for Angular libraries.",
     "keywords": [
         "angular",
@@ -10,8 +10,8 @@
         "documentation",
         "storybook"
     ],
-    "homepage": "https://github.com/tinkoff/taiga-ui",
-    "repository": "https://github.com/tinkoff/taiga-ui",
+    "homepage": "https://github.com/taiga-family/taiga-ui",
+    "repository": "https://github.com/taiga-family/taiga-ui",
     "license": "Apache-2.0",
     "dependencies": {
         "@angular-devkit/schematics": "12.2.18",
@@ -28,10 +28,10 @@
         "@angular/forms": ">=12.0.0",
         "@angular/router": ">=12.0.0",
         "@ng-web-apis/common": ">=3.0.0",
-        "@taiga-ui/addon-mobile": ">=3.36.2",
-        "@taiga-ui/cdk": ">=3.36.2",
-        "@taiga-ui/core": ">=3.36.2",
-        "@taiga-ui/kit": ">=3.36.2",
+        "@taiga-ui/addon-mobile": ">=3.41.1",
+        "@taiga-ui/cdk": ">=3.41.1",
+        "@taiga-ui/core": ">=3.41.1",
+        "@taiga-ui/kit": ">=3.41.1",
         "@tinkoff/ng-polymorpheus": ">=4.0.0",
         "tslib": ">=2.0.0"
     }

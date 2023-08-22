@@ -8,6 +8,7 @@ import {
 import {inject, PLATFORM_ID, Provider} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {UrlTree} from '@angular/router';
+import {SESSION_STORAGE} from '@ng-web-apis/common';
 import {
     TUI_DOC_CODE_EDITOR,
     TUI_DOC_DEFAULT_TABS,
@@ -19,12 +20,14 @@ import {
     TUI_DOC_SOURCE_CODE,
     TUI_DOC_TITLE,
     TUI_DOC_URL_STATE_HANDLER,
+    tuiDocExampleOptionsProvider,
     TuiDocSourceCodePathOptions,
 } from '@taiga-ui/addon-doc';
 import {
     TUI_DIALOG_CLOSES_ON_BACK,
     TUI_ENSURE_BASE_HREF,
-    TUI_IS_CYPRESS,
+    TUI_IS_E2E,
+    TUI_IS_PLAYWRIGHT,
     TUI_TAKE_ONLY_TRUSTED_EVENTS,
     tuiAssert,
 } from '@taiga-ui/cdk';
@@ -58,6 +61,10 @@ export const APP_PROVIDERS: Provider[] = [
         useFactory: () => inject(DOCUMENT).getElementsByTagName(`base`)?.[0]?.href || `/`,
     },
     {
+        provide: TUI_IS_PLAYWRIGHT,
+        useFactory: () => Boolean(inject(SESSION_STORAGE).getItem(`playwright`)),
+    },
+    {
         provide: HIGHLIGHT_OPTIONS,
         useFactory: () => {
             const isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
@@ -83,7 +90,7 @@ export const APP_PROVIDERS: Provider[] = [
     {
         provide: TUI_DOC_SOURCE_CODE,
         useValue: ({type, path, header, package: pkg}: TuiDocSourceCodePathOptions) => {
-            const link = `https://github.com/tinkoff/taiga-ui/tree/main/projects`;
+            const link = `https://github.com/taiga-family/taiga-ui/tree/main/projects`;
 
             if (!pkg) {
                 return null;
@@ -138,35 +145,35 @@ export const APP_PROVIDERS: Provider[] = [
     },
     {
         provide: TUI_ANIMATIONS_DURATION,
-        useFactory: () => (inject(TUI_IS_CYPRESS) ? 0 : 300),
+        useFactory: () => (inject(TUI_IS_E2E) ? 0 : 300),
     },
     {
         provide: TUI_HINT_OPTIONS,
         useFactory: () =>
-            inject(TUI_IS_CYPRESS)
+            inject(TUI_IS_E2E)
                 ? {...TUI_HINT_DEFAULT_OPTIONS, showDelay: 0, hideDelay: 0}
                 : TUI_HINT_DEFAULT_OPTIONS,
     },
     {
         provide: TUI_DROPDOWN_HOVER_OPTIONS,
         useFactory: () =>
-            inject(TUI_IS_CYPRESS)
+            inject(TUI_IS_E2E)
                 ? {...TUI_DROPDOWN_HOVER_DEFAULT_OPTIONS, showDelay: 0, hideDelay: 0}
                 : TUI_DROPDOWN_HOVER_DEFAULT_OPTIONS,
     },
     {
         provide: TUI_DOC_SCROLL_BEHAVIOR,
-        useFactory: () => (inject(TUI_IS_CYPRESS) ? `auto` : `smooth`), // https://github.com/cypress-io/cypress/issues/4640
+        useFactory: () => (inject(TUI_IS_E2E) ? `auto` : `smooth`), // https://github.com/cypress-io/cypress/issues/4640
     },
     {
         provide: TUI_TAKE_ONLY_TRUSTED_EVENTS,
-        useFactory: () => !inject(TUI_IS_CYPRESS),
+        useFactory: () => !inject(TUI_IS_E2E),
     },
     {
         provide: TUI_DIALOG_CLOSES_ON_BACK,
-        // TODO: change it back after solving https://github.com/Tinkoff/taiga-ui/issues/3270
+        // TODO: change it back after solving https://github.com/taiga-family/taiga-ui/issues/3270
         // useFactory: () => of(!tuiIsInsideIframe(inject(WINDOW))), // for cypress tests
-        useFactory: () => of(inject(TUI_IS_CYPRESS)),
+        useFactory: () => of(inject(TUI_IS_E2E)),
     },
     {
         provide: TUI_DOC_URL_STATE_HANDLER,
@@ -174,6 +181,7 @@ export const APP_PROVIDERS: Provider[] = [
         useFactory: (baseHref: string) => (tree: UrlTree) =>
             String(tree).replace(baseHref, ``),
     },
+    tuiDocExampleOptionsProvider({fullsize: false}),
     tuiLanguageSwitcher(
         async (language: TuiLanguageName): Promise<unknown> =>
             import(

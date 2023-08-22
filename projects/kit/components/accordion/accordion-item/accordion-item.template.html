@@ -7,14 +7,14 @@
         automation-id="tui-accordion__item-header"
         type="button"
         class="t-header"
-        [disabled]="computedDisabled"
-        [class.t-header_open]="open"
         [class.t-header_hoverable]="!disableHover"
+        [class.t-header_open]="open"
+        [disabled]="computedDisabled"
         [tuiFocusable]="computedFocusable"
-        (tuiFocusVisibleChange)="onFocusVisible($event)"
-        (tuiFocusedChange)="onFocused($event)"
-        (keydown.esc)="onItemKeyDownEsc($event)"
         (click)="onRowToggle()"
+        (keydown.esc)="onItemKeyDownEsc($event)"
+        (tuiFocusedChange)="onFocused($event)"
+        (tuiFocusVisibleChange)="onFocusVisible($event)"
     >
         <span
             automation-id="tui-accordion__item-title"
@@ -22,13 +22,15 @@
         >
             <ng-content></ng-content>
         </span>
-        <tui-svg
-            *ngIf="showArrow"
-            automation-id="tui-accordion__item-arrow"
-            src="tuiIconChevronDownLarge"
-            class="t-icon"
-            [class.t-icon_open]="open"
-        ></tui-svg>
+        <ng-container *ngIf="showArrow">
+            <tui-svg
+                *polymorpheusOutlet="options.iconLarge as src"
+                automation-id="tui-accordion__item-arrow"
+                class="t-icon"
+                [class.t-icon_open]="open"
+                [src]="src"
+            ></tui-svg>
+        </ng-container>
     </button>
     <tui-expand
         [async]="async"

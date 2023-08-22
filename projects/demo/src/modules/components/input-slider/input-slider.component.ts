@@ -2,7 +2,7 @@ import {Component, forwardRef} from '@angular/core';
 import {FormControl} from '@angular/forms';
 import {changeDetection} from '@demo/emulate/change-detection';
 import {TuiDocExample} from '@taiga-ui/addon-doc';
-import {TuiAutofillFieldName, TuiContextWithImplicit} from '@taiga-ui/cdk';
+import {TuiContextWithImplicit} from '@taiga-ui/cdk';
 import {TuiSizeL} from '@taiga-ui/core';
 import {TuiKeySteps} from '@taiga-ui/kit';
 
@@ -27,7 +27,6 @@ export class ExampleTuiInputSliderComponent extends AbstractExampleTuiControl {
     readonly example1: TuiDocExample = {
         HTML: import('./examples/1/index.html?raw'),
         TypeScript: import('./examples/1/index.ts?raw'),
-        LESS: import('./examples/1/index.less?raw'),
     };
 
     readonly example2: TuiDocExample = {
@@ -97,13 +96,6 @@ export class ExampleTuiInputSliderComponent extends AbstractExampleTuiControl {
     ];
 
     keySteps: TuiKeySteps | null = null;
-
-    override readonly autocompleteVariants: TuiAutofillFieldName[] = [
-        'off',
-        'transaction-amount',
-    ];
-
-    override autocomplete: TuiAutofillFieldName | '' = '';
 
     override readonly customContentVariants: string[] = [
         '',

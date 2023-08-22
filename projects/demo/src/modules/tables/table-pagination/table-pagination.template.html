@@ -10,6 +10,7 @@
             id="usage"
             heading="Usage"
             [content]="example1"
+            [fullsize]="true"
         >
             <tui-table-pagination-example-1></tui-table-pagination-example-1>
         </tui-doc-example>
@@ -17,8 +18,9 @@
         <tui-doc-example
             id="custom-size-option-content"
             heading="Custom size-option content"
-            [description]="tokenDescription"
             [content]="example2"
+            [description]="tokenDescription"
+            [fullsize]="true"
         >
             <ng-template #tokenDescription>
                 You can customize the component via DI-token
@@ -38,6 +40,7 @@
             id="toggle-pages-label"
             heading="Toggle pages label"
             [content]="example3"
+            [fullsize]="true"
         >
             <tui-table-pagination-example-3></tui-table-pagination-example-3>
         </tui-doc-example>
@@ -56,17 +59,18 @@
         </tui-doc-demo>
         <tui-doc-documentation>
             <ng-template
-                documentationPropertyName="total"
                 documentationPropertyMode="input"
+                documentationPropertyName="total"
                 documentationPropertyType="number"
                 [(documentationPropertyValue)]="total"
             >
                 Total amount of items/lines in the table.
             </ng-template>
             <ng-template
-                documentationPropertyName="size"
                 documentationPropertyMode="input"
+                documentationPropertyName="size"
                 documentationPropertyType="number"
+                [documentationPropertyDeprecated]="true"
                 [(documentationPropertyValue)]="size"
             >
                 Items/Lines per page.
@@ -76,20 +80,26 @@
                     <code>items</code>
                     by default.
                 </p>
+                Use
+                <code>paginationChange</code>
+                instead
             </ng-template>
             <ng-template
-                documentationPropertyName="page"
                 documentationPropertyMode="input"
+                documentationPropertyName="page"
                 documentationPropertyType="number"
+                [documentationPropertyDeprecated]="true"
                 [(documentationPropertyValue)]="page"
             >
                 Current page.
-
                 <p>Indexing starts at zero.</p>
+                Use
+                <code>paginationChange</code>
+                instead
             </ng-template>
             <ng-template
-                documentationPropertyName="items"
                 documentationPropertyMode="input"
+                documentationPropertyName="items"
                 documentationPropertyType="readonly number[]"
                 [documentationPropertyValues]="itemsVariants"
                 [(documentationPropertyValue)]="items"
@@ -98,26 +108,33 @@
             </ng-template>
             <ng-template
                 #documentationPropertyPageChange="documentationProperty"
-                documentationPropertyName="pageChange"
                 documentationPropertyMode="output"
+                documentationPropertyName="pageChange"
                 documentationPropertyType="number"
+                [documentationPropertyDeprecated]="true"
             >
                 Emits the selected page when user navigates by spin&nbsp;buttons or selects new size of items per page.
+                Use
+                <code>paginationChange</code>
+                instead
             </ng-template>
             <ng-template
                 #documentationPropertySizeChange="documentationProperty"
-                documentationPropertyName="sizeChange"
                 documentationPropertyMode="output"
+                documentationPropertyName="sizeChange"
                 documentationPropertyType="number"
+                [documentationPropertyDeprecated]="true"
             >
                 Emits the new
                 <code>size</code>
-                -property (user selects new amount of lines per page).
+                -property (user selects new amount of lines per page). Use
+                <code>paginationChange</code>
+                instead
             </ng-template>
             <ng-template
                 #documentationPropertyPaginationChange="documentationProperty"
-                documentationPropertyName="paginationChange"
                 documentationPropertyMode="output"
+                documentationPropertyName="paginationChange"
                 documentationPropertyType="TuiTablePagination"
             >
                 Event emits when

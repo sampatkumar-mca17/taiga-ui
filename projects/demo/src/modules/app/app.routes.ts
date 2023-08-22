@@ -199,6 +199,14 @@ export const ROUTES: Routes = [
         },
     },
     {
+        path: `experimental/avatar`,
+        loadChildren: async () =>
+            (await import(`../experimental/avatar/avatar.module`)).ExampleTuiAvatarModule,
+        data: {
+            title: `Avatar`,
+        },
+    },
+    {
         path: `navigation/breadcrumbs`,
         loadChildren: async () =>
             (await import(`../components/breadcrumbs/breadcrumbs.module`))
@@ -815,6 +823,15 @@ export const ROUTES: Routes = [
         },
     },
     {
+        path: `components/sheet-dialog`,
+        loadChildren: async () =>
+            (await import(`../components/sheet-dialog/sheet-dialog.module`))
+                .ExampleTuiSheetDialogModule,
+        data: {
+            title: `SheetDialog`,
+        },
+    },
+    {
         path: `components/slider`,
         loadChildren: async () =>
             (await import(`../components/slider/slider.module`)).ExampleTuiSliderModule,
@@ -882,12 +899,12 @@ export const ROUTES: Routes = [
         },
     },
     {
-        path: `components/text-area`,
+        path: `components/textarea`,
         loadChildren: async () =>
-            (await import(`../components/text-area/text-area.module`))
-                .ExampleTuiTextAreaModule,
+            (await import(`../components/textarea/textarea.module`))
+                .ExampleTuiTextareaModule,
         data: {
-            title: `TextArea`,
+            title: `Textarea`,
         },
     },
     {
@@ -1628,33 +1645,6 @@ export const ROUTES: Routes = [
             title: `TextfieldController`,
         },
     },
-    // DECORATORS
-    {
-        path: `decorators/default-prop`,
-        loadChildren: async () =>
-            (await import(`../decorators/default-prop/default-prop.module`))
-                .ExampleTuiDefaultPropModule,
-        data: {
-            title: `DefaultProp`,
-        },
-    },
-    {
-        path: `decorators/pure`,
-        loadChildren: async () =>
-            (await import(`../decorators/pure/pure.module`)).ExampleTuiPureModule,
-        data: {
-            title: `Pure`,
-        },
-    },
-    {
-        path: `decorators/required-setter`,
-        loadChildren: async () =>
-            (await import(`../decorators/required-setter/required-setter.module`))
-                .ExampleTuiRequiredSetterModule,
-        data: {
-            title: `RequiredSetter`,
-        },
-    },
 
     // UTILS
     {
@@ -1704,6 +1694,14 @@ export const ROUTES: Routes = [
             (await import(`../utils/tokens/tokens.module`)).ExampleTokensModule,
         data: {
             title: `Tokens`,
+        },
+    },
+    {
+        path: `utils/pure`,
+        loadChildren: async () =>
+            (await import(`../utils/pure/pure.module`)).ExampleTuiPureModule,
+        data: {
+            title: `Pure`,
         },
     },
 

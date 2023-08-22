@@ -2,8 +2,8 @@
     <p>
         Taiga UI uses
         <a
-            tuiLink
             routerLink="/icons/overview"
+            tuiLink
         >
             <code>tui-svg</code>
         </a>
@@ -13,8 +13,8 @@
 
     <p>
         <button
-            tuiButton
             size="xs"
+            tuiButton
             type="button"
             (click)="toggle()"
         >
@@ -55,11 +55,12 @@
         id="processing"
         heading="Reusable SVG"
         [content]="example2"
+        [fullsize]="true"
     >
         <img
-            width="100%"
-            src="assets/images/mapping.jpg"
             alt="info"
+            src="assets/images/mapping.jpg"
+            width="100%"
             class="tui-space_bottom-4"
         />
 
@@ -67,8 +68,8 @@
 
         By default all icons from the
         <a
-            tuiLink
             routerLink="/icons/overview"
+            tuiLink
         >
             icons pack
         </a>
@@ -92,6 +93,7 @@
         id="gradient"
         heading="Gradients in SVG"
         [content]="example3"
+        [fullsize]="true"
     >
         <tui-icons-mapping-example-3></tui-icons-mapping-example-3>
     </tui-doc-example>
@@ -99,6 +101,7 @@
     <tui-doc-example
         id="bundled"
         heading="Bundled icons"
+        [fullsize]="true"
     >
         <p>
             There are two ways to add icons:
@@ -116,8 +119,8 @@
 
         <p>
             <a
-                tuiLink
                 routerLink="/icons/bundled"
+                tuiLink
             >
                 If you want to embed icons in a js bundle use
                 <code>SvgService</code>
@@ -125,13 +128,10 @@
         </p>
     </tui-doc-example>
 
-    <tui-doc-example
-        id="di"
-        heading="DI options"
-    >
-        <tui-doc-code
-            filename="app.module.ts"
-            [code]="options"
-        ></tui-doc-code>
-    </tui-doc-example>
+    <h2 class="tui-space_top-8">DI options</h2>
+
+    <tui-doc-code
+        filename="app.module.ts"
+        [code]="options"
+    ></tui-doc-code>
 </tui-doc-page>

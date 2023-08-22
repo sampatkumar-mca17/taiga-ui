@@ -15,19 +15,19 @@
         </button>
         <ng-template #dropdown>
             <tui-data-list-wrapper
-                tuiMultiSelectGroup
                 formControlName="control"
+                tuiMultiSelectGroup
                 [items]="items"
             ></tui-data-list-wrapper>
         </ng-template>
         <ng-template #cleaner>
             <button
-                tuiIconButton
                 appearance="icon"
+                icon="tuiIconClose"
                 size="xs"
-                icon="tuiIconCloseLarge"
-                type="reset"
+                tuiIconButton
                 tuiPreventDefault="mousedown"
+                type="reset"
             ></button>
         </ng-template>
     </tui-hosted-dropdown>

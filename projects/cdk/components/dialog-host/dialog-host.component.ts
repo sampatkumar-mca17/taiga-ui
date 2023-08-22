@@ -1,9 +1,9 @@
+import {DOCUMENT} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     Inject,
-    InjectionToken,
     OnInit,
     Self,
 } from '@angular/core';
@@ -13,18 +13,14 @@ import {TUI_PARENT_ANIMATION} from '@taiga-ui/cdk/constants';
 import {TuiDestroyService} from '@taiga-ui/cdk/services';
 import {TUI_DIALOGS} from '@taiga-ui/cdk/tokens';
 import {TuiDialog} from '@taiga-ui/cdk/types';
+import {tuiCreateToken} from '@taiga-ui/cdk/utils';
 import {combineLatest, Observable, of} from 'rxjs';
 import {map, takeUntil} from 'rxjs/operators';
 
 /**
  * Is closing dialog on browser backward navigation enabled
  */
-export const TUI_DIALOG_CLOSES_ON_BACK = new InjectionToken<Observable<boolean>>(
-    '[TUI_DIALOG_CLOSES_ON_BACK]',
-    {
-        factory: () => of(false),
-    },
-);
+export const TUI_DIALOG_CLOSES_ON_BACK = tuiCreateToken(of(false));
 
 const FAKE_HISTORY_STATE = {label: 'ignoreMe'} as const;
 const isFakeHistoryState = (
@@ -56,6 +52,7 @@ export class TuiDialogHostComponent<T extends TuiDialog<unknown, unknown>>
         @Inject(Title) private readonly titleService: Title,
         @Self() @Inject(TuiDestroyService) private readonly destroy$: Observable<void>,
         @Inject(ChangeDetectorRef) private readonly cdr: ChangeDetectorRef,
+        @Inject(DOCUMENT) private readonly doc: Document,
     ) {}
 
     ngOnInit(): void {
@@ -73,6 +70,12 @@ export class TuiDialogHostComponent<T extends TuiDialog<unknown, unknown>>
             .subscribe(dialogs => {
                 this.dialogs = dialogs;
                 this.cdr.markForCheck();
+
+                // TODO: Hack for mobile Firefox: https://bugzilla.mozilla.org/show_bug.cgi?id=1845264
+                this.doc.documentElement.classList.toggle(
+                    't-overscroll-none',
+                    !!dialogs.length,
+                );
             });
     }
 

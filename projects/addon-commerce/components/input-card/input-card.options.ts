@@ -4,7 +4,7 @@ import {
     TUI_PAYMENT_SYSTEM_ICONS,
     tuiGetPaymentSystem,
 } from '@taiga-ui/addon-commerce/utils';
-import {tuiCreateOptions, TuiHandler, tuiProvideOptions} from '@taiga-ui/cdk';
+import {tuiCreateToken, TuiHandler, tuiProvideOptions} from '@taiga-ui/cdk';
 import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 
 export interface TuiInputCardOptions {
@@ -17,6 +17,7 @@ export interface TuiInputCardOptions {
     >;
 }
 
+// TODO: Move payment system icons into its own token in 4.0
 export const TUI_INPUT_CARD_DEFAULT_OPTIONS: TuiInputCardOptions = {
     icons: TUI_PAYMENT_SYSTEM_ICONS,
     cardSrc: ``,
@@ -24,7 +25,7 @@ export const TUI_INPUT_CARD_DEFAULT_OPTIONS: TuiInputCardOptions = {
     autocompleteEnabled: false,
 };
 
-export const TUI_INPUT_CARD_OPTIONS = tuiCreateOptions(TUI_INPUT_CARD_DEFAULT_OPTIONS);
+export const TUI_INPUT_CARD_OPTIONS = tuiCreateToken(TUI_INPUT_CARD_DEFAULT_OPTIONS);
 
 export function tuiInputCardOptionsProvider(
     options: Partial<TuiInputCardOptions>,

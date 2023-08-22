@@ -1,6 +1,13 @@
 import {Clipboard} from '@angular/cdk/clipboard';
 import {Location as NgLocation} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Inject, Input, Optional} from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    HostBinding,
+    Inject,
+    Input,
+    Optional,
+} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LOCATION} from '@ng-web-apis/common';
 import {TuiCodeEditor, TuiDocExample} from '@taiga-ui/addon-doc/interfaces';
@@ -11,8 +18,8 @@ import {
     TUI_DOC_EXAMPLE_TEXTS,
 } from '@taiga-ui/addon-doc/tokens';
 import {tuiRawLoadRecord} from '@taiga-ui/addon-doc/utils';
-import {TUI_IS_CYPRESS, TuiContextWithImplicit, TuiHandler} from '@taiga-ui/cdk';
-import {TuiAlertService, TuiNotification} from '@taiga-ui/core';
+import {TUI_IS_E2E, TuiContextWithImplicit, TuiHandler} from '@taiga-ui/cdk';
+import {TuiAlertService} from '@taiga-ui/core';
 import {TUI_COPY_TEXTS} from '@taiga-ui/kit';
 import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 import {BehaviorSubject, Observable, Subject} from 'rxjs';
@@ -42,6 +49,10 @@ export class TuiDocExampleComponent {
     set content(content: TuiDocExample) {
         this.rawLoader$$.next(content);
     }
+
+    @Input()
+    @HostBinding('class._fullsize')
+    fullsize = this.options.fullsize;
 
     @Input()
     componentName: string = this.location.pathname.slice(1);
@@ -76,13 +87,13 @@ export class TuiDocExampleComponent {
             Record<string, string>,
             Record<string, string>
         >,
-        @Inject(TUI_IS_CYPRESS) readonly isCypress: boolean,
+        @Inject(TUI_IS_E2E) readonly isE2E: boolean,
         @Inject(TUI_DOC_CODE_ACTIONS)
         readonly codeActions: Array<PolymorpheusContent<TuiContextWithImplicit<string>>>,
         @Inject(Router) private readonly router: Router,
         @Inject(ActivatedRoute) private readonly route: ActivatedRoute,
         @Inject(NgLocation) private readonly ngLocation: NgLocation,
-        @Inject(TUI_DOC_EXAMPLE_OPTIONS) private readonly options: TuiDocExampleOptions,
+        @Inject(TUI_DOC_EXAMPLE_OPTIONS) readonly options: TuiDocExampleOptions,
     ) {}
 
     readonly visible = (files: Record<string, string>): boolean =>
@@ -105,7 +116,7 @@ export class TuiDocExampleComponent {
         this.alerts
             .open(this.texts[1], {
                 label: this.texts[2],
-                status: TuiNotification.Success,
+                status: 'success',
             })
             .subscribe();
     }

@@ -1,40 +1,29 @@
-<div
-    *ngIf="spinTexts$ | async as texts"
-    #wrapper
-    tuiPreventDefault="mousedown"
-    class="t-wrapper"
-    (focusin)="onFocused(true)"
-    (focusout)="onFocused(false)"
-    (keydown.arrowLeft)="onLeftClick()"
-    (keydown.arrowRight)="onRightClick()"
->
+<ng-container *ngIf="spinTexts$ | async as texts">
     <button
+        appearance="flat"
+        automation-id="tui-primitive-spin-button__left"
+        size="xs"
         tuiIconButton
         type="button"
-        size="xs"
-        appearance=""
-        automation-id="tui-primitive-spin-button__left"
-        icon="tuiIconChevronLeftLarge"
-        class="t-arrow"
-        [class.t-arrow_hidden]="leftComputedDisabled"
-        [title]="texts[0]"
+        [class.t-hidden]="leftComputedDisabled"
         [focusable]="computedFocusable"
+        [icon]="icons.decrement"
+        [title]="texts[0]"
         (click)="onLeftClick()"
     ></button>
     <span class="t-content t-calendar-title">
         <ng-content></ng-content>
     </span>
     <button
+        appearance="flat"
+        automation-id="tui-primitive-spin-button__right"
+        size="xs"
         tuiIconButton
         type="button"
-        size="xs"
-        appearance=""
-        automation-id="tui-primitive-spin-button__right"
-        icon="tuiIconChevronRightLarge"
-        class="t-arrow"
-        [class.t-arrow_hidden]="rightComputedDisabled"
-        [title]="texts[1]"
+        [class.t-hidden]="rightComputedDisabled"
         [focusable]="computedFocusable"
+        [icon]="icons.increment"
+        [title]="texts[1]"
         (click)="onRightClick()"
     ></button>
-</div>
+</ng-container>

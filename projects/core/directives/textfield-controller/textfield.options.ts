@@ -1,8 +1,11 @@
 import {Provider} from '@angular/core';
-import {TuiContextWithImplicit, tuiCreateOptions, tuiProvideOptions} from '@taiga-ui/cdk';
+import {TuiContextWithImplicit, tuiCreateToken, tuiProvideOptions} from '@taiga-ui/cdk';
 import {TuiSizeL, TuiSizeS} from '@taiga-ui/core/types';
 import {PolymorpheusContent} from '@tinkoff/ng-polymorpheus';
 
+/**
+ * TODO: replace with TUI_COMMON_ICONS and drop hintOnDisabled, switching it to true in v.4
+ */
 export interface TuiTextfieldOptions {
     readonly hintOnDisabled: boolean;
     readonly iconCleaner: PolymorpheusContent<
@@ -19,7 +22,7 @@ export const TUI_TEXTFIELD_DEFAULT_OPTIONS: TuiTextfieldOptions = {
 /**
  * Default parameters for textfield
  */
-export const TUI_TEXTFIELD_OPTIONS = tuiCreateOptions(TUI_TEXTFIELD_DEFAULT_OPTIONS);
+export const TUI_TEXTFIELD_OPTIONS = tuiCreateToken(TUI_TEXTFIELD_DEFAULT_OPTIONS);
 
 export function tuiTextfieldOptionsProvider(
     options: Partial<TuiTextfieldOptions>,

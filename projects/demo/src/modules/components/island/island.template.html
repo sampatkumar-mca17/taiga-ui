@@ -66,6 +66,7 @@
             id="base"
             heading="Basic"
             [content]="example1"
+            [fullsize]="true"
         >
             <tui-island-example-1></tui-island-example-1>
         </tui-doc-example>
@@ -74,6 +75,7 @@
             id="full-featured"
             heading="Many options"
             [content]="example2"
+            [fullsize]="true"
         >
             <tui-island-example-2></tui-island-example-2>
         </tui-doc-example>
@@ -82,6 +84,7 @@
             id="custom"
             heading="Custom"
             [content]="example3"
+            [fullsize]="true"
         >
             <tui-island-example-3></tui-island-example-3>
         </tui-doc-example>
@@ -104,9 +107,9 @@
                         <p class="tui-island__paragraph">Some information</p>
                         <p class="tui-island__paragraph tui-island__paragraph_button">
                             <button
+                                appearance="secondary"
                                 tuiButton
                                 type="button"
-                                appearance="secondary"
                                 [size]="size"
                             >
                                 Button
@@ -118,16 +121,16 @@
         </tui-doc-demo>
         <tui-doc-documentation>
             <ng-template
+                documentationPropertyMode="input"
                 documentationPropertyName="hoverable"
                 documentationPropertyType="boolean"
-                documentationPropertyMode="input"
                 [(documentationPropertyValue)]="hoverable"
             >
                 Hoverable
             </ng-template>
             <ng-template
-                documentationPropertyName="size"
                 documentationPropertyMode="input"
+                documentationPropertyName="size"
                 documentationPropertyType="TuiSizeL"
                 [documentationPropertyValues]="sizeVariants"
                 [(documentationPropertyValue)]="size"
@@ -135,8 +138,8 @@
                 Size
             </ng-template>
             <ng-template
-                documentationPropertyName="textAlign"
                 documentationPropertyMode="input"
+                documentationPropertyName="textAlign"
                 documentationPropertyType="'left' | 'right' | 'center'"
                 [documentationPropertyValues]="textAlignVariants"
                 [(documentationPropertyValue)]="textAlign"

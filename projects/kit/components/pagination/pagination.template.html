@@ -2,35 +2,35 @@
     class="t-content"
     (tuiActiveZoneChange)="onActiveZone($event)"
 >
-    <ng-container *ngIf="sizeM; else smallButtons">
+    <ng-container *ngIf="size !== 's'; else smallButtons">
         <ng-container *ngIf="texts$ | async as texts">
             <button
+                appearance="flat"
                 tuiIconButton
                 type="button"
-                tuiPreventDefault="mousedown"
-                size="s"
-                appearance="flat"
-                icon="tuiIconChevronLeft"
                 class="t-button"
-                [title]="texts[0]"
                 [disabled]="arrowIsDisabledLeft"
                 [focusable]="false"
+                [icon]="icons.decrement"
+                [size]="buttonSize"
+                [title]="texts[0]"
                 (click)="onArrowClick('left')"
+                (mousedown.silent.prevent)="(0)"
             ></button>
             <ng-container *tuiRepeatTimes="let elementIndex of elementsLength">
                 <ng-container *tuiLet="getItemIndexByElementIndex(elementIndex) as index">
                     <button
                         *ngIf="index !== null; else dotsTemplate"
                         #element
-                        tuiButton
-                        type="button"
                         automation-id="tui-pagination__element"
                         shape="square"
-                        size="s"
+                        tuiButton
+                        type="button"
                         class="t-button"
+                        [appearance]="getElementMode(index)"
                         [disabled]="disabled"
                         [focusable]="elementIsFocusable(index)"
-                        [appearance]="getElementMode(index)"
+                        [size]="buttonSize"
                         (click)="onElementClick(index)"
                         (keydown.arrowLeft.prevent)="onElementKeyDownArrowLeft(element)"
                         (keydown.arrowRight.prevent)="onElementKeyDownArrowRight(element)"
@@ -42,17 +42,17 @@
                 </ng-container>
             </ng-container>
             <button
+                appearance="flat"
                 tuiIconButton
                 type="button"
-                tuiPreventDefault="mousedown"
-                size="s"
-                appearance="flat"
-                icon="tuiIconChevronRight"
                 class="t-button"
-                [title]="texts[1]"
                 [disabled]="arrowIsDisabledRight"
                 [focusable]="false"
+                [icon]="icons.increment"
+                [size]="buttonSize"
+                [title]="texts[1]"
                 (click)="onArrowClick('right')"
+                (mousedown.silent.prevent)="(0)"
             ></button>
         </ng-container>
     </ng-container>
@@ -60,14 +60,14 @@
         <button
             *tuiRepeatTimes="let indexItem of length"
             #element
+            shape="square"
             tuiButton
             type="button"
-            shape="square"
             class="t-button t-button_small"
+            [appearance]="getSmallElementMode(indexItem, mode$ | async)"
             [class.t-button_active]="indexItem === index"
             [disabled]="disabled"
             [focusable]="elementIsFocusable(indexItem)"
-            [appearance]="getSmallElementMode(indexItem, mode)"
             (click)="onElementClick(indexItem)"
             (keydown.arrowLeft.prevent)="onElementKeyDownArrowLeft(element)"
             (keydown.arrowRight.prevent)="onElementKeyDownArrowRight(element)"

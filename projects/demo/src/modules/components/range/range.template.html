@@ -18,6 +18,7 @@
             id="sizes"
             heading="Sizes"
             [content]="example2"
+            [fullsize]="true"
         >
             <tui-range-example-2></tui-range-example-2>
         </tui-doc-example>
@@ -58,12 +59,12 @@
             <ng-template>
                 <tui-range
                     [formControl]="control"
-                    [min]="min"
-                    [max]="max"
-                    [step]="step"
-                    [segments]="segments"
                     [keySteps]="keySteps"
+                    [max]="max"
+                    [min]="min"
+                    [segments]="segments"
                     [size]="size"
+                    [step]="step"
                 ></tui-range>
             </ng-template>
         </tui-doc-demo>
@@ -78,8 +79,8 @@
                 )
             </ng-template>
             <ng-template
-                documentationPropertyName="min"
                 documentationPropertyMode="input"
+                documentationPropertyName="min"
                 documentationPropertyType="number"
                 [(documentationPropertyValue)]="min"
             >
@@ -92,8 +93,8 @@
                 </p>
             </ng-template>
             <ng-template
-                documentationPropertyName="max"
                 documentationPropertyMode="input"
+                documentationPropertyName="max"
                 documentationPropertyType="number"
                 [(documentationPropertyValue)]="max"
             >
@@ -106,8 +107,8 @@
                 </p>
             </ng-template>
             <ng-template
-                documentationPropertyName="step"
                 documentationPropertyMode="input"
+                documentationPropertyName="step"
                 documentationPropertyType="number"
                 [(documentationPropertyValue)]="step"
             >
@@ -120,8 +121,8 @@
                 </p>
             </ng-template>
             <ng-template
-                documentationPropertyName="size"
                 documentationPropertyMode="input"
+                documentationPropertyName="size"
                 documentationPropertyType="TuiSizeS"
                 [documentationPropertyValues]="sizeVariants"
                 [(documentationPropertyValue)]="size"
@@ -135,8 +136,8 @@
                 </p>
             </ng-template>
             <ng-template
-                documentationPropertyName="segments"
                 documentationPropertyMode="input"
+                documentationPropertyName="segments"
                 documentationPropertyType="number"
                 [(documentationPropertyValue)]="segments"
             >
@@ -149,8 +150,8 @@
                 </p>
             </ng-template>
             <ng-template
-                documentationPropertyName="keySteps"
                 documentationPropertyMode="input"
+                documentationPropertyName="keySteps"
                 documentationPropertyType="TuiKeySteps | null"
                 [documentationPropertyValues]="keyStepsVariants"
                 [(documentationPropertyValue)]="keySteps"

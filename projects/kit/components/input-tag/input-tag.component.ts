@@ -37,10 +37,12 @@ import {
 import {
     MODE_PROVIDER,
     TEXTFIELD_CONTROLLER_PROVIDER,
+    TUI_COMMON_ICONS,
     TUI_MODE,
     TUI_TEXTFIELD_WATCHED_CONTROLLER,
     tuiAsDataListHost,
     TuiBrightness,
+    TuiCommonIcons,
     TuiDataListDirective,
     TuiDataListHost,
     TuiHintOptionsDirective,
@@ -192,7 +194,8 @@ export class TuiInputTagComponent
         private readonly options: TuiInputTagOptions,
         @Optional()
         @Inject(TuiHostedDropdownComponent)
-        private readonly parentHostedDropdown?: TuiHostedDropdownComponent,
+        private readonly parentHostedDropdown: TuiHostedDropdownComponent | null,
+        @Inject(TUI_COMMON_ICONS) readonly icons: TuiCommonIcons,
     ) {
         super(control, cdr);
     }
@@ -225,16 +228,17 @@ export class TuiInputTagComponent
         return size === 's' || labelOutside;
     }
 
+    @HostBinding('class._icon-left')
+    get iconLeft(): PolymorpheusContent<TuiContextWithImplicit<TuiSizeL | TuiSizeS>> {
+        return this.controller.iconLeft;
+    }
+
     get icon(): PolymorpheusContent<TuiContextWithImplicit<TuiSizeL | TuiSizeS>> {
         return this.controller.icon;
     }
 
     get iconCleaner(): PolymorpheusContent<TuiContextWithImplicit<TuiSizeL | TuiSizeS>> {
         return this.controller.options.iconCleaner;
-    }
-
-    get iconLeft(): PolymorpheusContent<TuiContextWithImplicit<TuiSizeL | TuiSizeS>> {
-        return this.controller.iconLeft;
     }
 
     get hasCleaner(): boolean {
